@@ -1,0 +1,196 @@
+@charset "utf-8";
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover{
+    outline: none;
+  }
+}
+img {
+  border: 0;
+}
+
+.important{color:red}
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+}
+
+ #app .el-switch__label {
+  position: absolute;
+  display: none;
+  color: #fff;
+  
+}
+#app .el-switch__label span{
+    font-size:12px;
+    line-height:20px;
+}
+/*打开时文字位置设置*/
+#app .el-switch__label--right {
+  z-index: 1;
+  right: 7px;
+}
+/*关闭时文字位置设置*/
+#app .el-switch__label--left {
+  z-index: 1;
+  left: 8px;
+}
+/*显示文字*/
+#app .el-switch__label.is-active {
+  display: block;
+}
+#app .el-switch .el-switch__core,
+#app .el-switch .el-switch__label {
+  width: 50px !important;
+  text-align: center;
+}
+
+.el-table th>.cell,.el-table td>.cell{padding:0!important;margin:0}
+.el-table th{background-color: #f0f1f3!important;color: #797979;border-color: #dee2e6!important;}
+.el-table th .cell{font-weight:bold!important;padding:0}
+
+
+.el-submenu [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+.el-menu-item [class^=fa] {
+    vertical-align: baseline;
+    margin-right: 10px;
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: all .2s ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0;
+}
+
+
+
+aside .el-submenu .el-menu,
+aside .is-opened {
+    background-color: #35404d !important;
+}
+
+aside .el-menu-item.is-active {
+    color: #FF6C60 !important;
+}
+
+.el-submenu__title {
+
+    span,
+    i {
+        color: #aeb2b7;
+    }
+
+    &:hover {
+        background: #35404d !important
+    }
+}
+
+#app{
+    .main{
+        .content-container{
+            .breadcrumb-containe{margin:15px 0}
+            .toolbar{background: #f1f2f7;padding: 5px;margin-bottom: 8px;}
+            .el-form-item{
+                margin-bottom: 0px;margin-right:6px;
+                .el-form-item__label{width:80px;}
+                .el-input--small{width:190px!important;}
+                .el-date-editor--datetimerange{
+                  width:420px!important;
+                }
+                
+            }
+            .el-dialog__body{padding:10px 20px}
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    
+    #app{
+        .main{
+            .content-container{
+                .state-overview{
+                    .value{
+                        h1,p{font-size:16px!important;}
+                    }
+                    .symbol {
+                        i{font-size:40px!important;}
+                    }
+                }
+                .breadcrumb-containe{margin:15px 0}
+                .el-form-item{
+                    .el-checkbox__label{padding-left:5px;}
+                    .el-form-item__label{padding-right:5px;width:65px;}
+                    .el-input--small{width:118px!important;}
+                    .el-date-editor--datetimerange{
+                        width:295px!important;
+                        padding:3px 0 3px 3px;
+                        .el-range__close-icon{width:20px}
+                        .el-range-input{width:45%}
+                        .el-range-separator{
+                            padding:0!important;
+                            width:5%;
+                        }
+                    }
+                }
+                .el-dialog__body{padding:10px 20px}
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+  #app{
+      .main{
+          .content-container{
+            .state-overview{
+                .value{
+                    h1,p{
+                        font-size:14px!important;
+                    }
+                   
+                    .sub{font-size:12px!important;}
+                }
+                .symbol {
+                    i{
+                        font-size:32px!important;
+                    }
+                }
+            }
+              font-size:12px;padding:15px 5px 0 5px!important;
+              .breadcrumb-containe{margin:15px 0}
+              .el-table{
+                .cell{
+                  font-size:12px;padding:0;margin:0
+                }
+              }
+          }
+      }
+  }
+   
+    
+
+}
