@@ -1,0 +1,8 @@
+@media screen and  (max-width:761px){
+}
+@media screen and (max-width:768px) {
+  .qs {
+    width: auto !important;
+    clear: both;
+  }
+}

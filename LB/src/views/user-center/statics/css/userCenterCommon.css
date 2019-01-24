@@ -1,0 +1,271 @@
+.title{
+  margin-top: -24px;
+  margin-left: 60px;
+  color: #777;
+}
+.title .superior{
+  cursor: pointer;
+}
+.title .superior:hover{
+  color: #eb7e00;
+}
+.title .el-icon-d-arrow-right{
+  color: #ccc;
+  transform: scale(0.9);
+  margin: 0 4px;
+}
+.centerBox{
+  padding: 40px 0 15px 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.centerBox .condition{
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+.centerBox .condition >div{
+  margin: 0 10px;
+}
+.centerBox .condition .selects .label{
+  height: 25px;
+  line-height: 25px;
+  color: #777;
+  font-weight: 300;
+}
+.centerBox .condition .selects .el-select{
+  height: 40px;
+}
+.centerBox .condition .el-button{
+  border-color: #EC6300;
+  color: #777;
+  height: 40px;
+  margin: 25px 0 0 10px;
+}
+.centerBox .condition .active{
+  color: #fff;
+  background-color: #eb7e00;
+}
+.centerBox .condition .el-button:hover{
+  background-color: #EC6300;
+  color: #fff;
+}
+.centerBox .content{
+  padding-top: 40px;
+}
+.centerBox .left{
+  width: 780px;
+  padding-right: 20px;
+  float: left;
+}
+.centerBox .left .titles{
+  height: 38px;
+  line-height: 38px;
+  padding-left: 20px;
+  font-size: 13px;;
+  background: #f1f0f0;
+  color: #777;
+}
+.centerBox .left .content{
+  padding: 20px 0;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+}
+.centerBox .left .content>p{
+  margin-bottom: 20px;
+}
+.el-form-item__label{
+  color: #777;
+}
+.el-form-item .el-form-item__content .el-input,.el-input-number{
+  width: 217px;
+}
+.el-form-item .el-form-item__content .percentage{
+  position: relative;
+  left: -115px;
+  top: 1px;
+}
+.centerBox .left .add{
+  width: 100px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  background: #eb7e00;
+  border: 1px solid #EC6300;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 20px auto;
+  cursor: pointer;
+}
+.centerBox .left .add:hover{
+  background: #EC6300;
+}
+/*统计分析*/
+.content section{
+  width: 100%;
+}
+.content section .titles{
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.content section ul{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: #eee;
+  border-radius: 5px;
+  padding-top: 30px;
+  overflow: hidden;
+}
+.content section ul li{
+  width: 260px;
+  height: 110px;
+  padding: 20px;
+  margin-bottom: 30px;
+  align-content: center;
+  background: #fff;
+  box-shadow:0 20px 20px -20px #333;
+  transition: all 0.5s;
+}
+.content section ul li:hover{
+  cursor: pointer;
+  box-shadow:0 15px 20px -20px #333;
+}
+.content section ul li:hover span{
+  color: #c1c1c1;
+}
+.content section ul li span{
+  float: left;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  color: rgb(119, 119, 119);
+  margin-top: 16px;
+}
+.content section ul li div{
+  float: left;
+  width: 176px;
+  height: 68px;
+  text-align: center;
+}
+.content .text p:nth-child(1){
+  font-size: 19px;
+  line-height: 34px;
+  color: rgb(51, 51, 51);
+}
+.content .text p:nth-child(2){
+  font-size: 15px;
+  line-height: 34px;
+  color: rgb(119, 119, 119);
+}
+.iconfont{
+  font-size: 28px;
+}
+/*统计分析*/
+/*自定义下拉查找账户样式*/
+.fuzzySearch .form-contrl {
+  position: relative;
+  padding: 6px 10px;
+  width: 100%;
+  border: 1px solid rgb(220, 223, 230);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.fuzzySearch .form-contrl input {
+  width: 100%;
+  line-height: 24px;
+  color: #9B9B9B;
+  font-size: 15px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.fuzzySearch .form-contrl input::-webkit-input-placeholder {
+  color: #9B9B9B;
+}
+.fuzzySearch .form-contrl .listbox{
+  max-height: 200px;
+  width: 600px;
+  position: absolute;
+  top: 50px;
+  left: -1px;
+  overflow: hidden;
+  z-index: 9;
+}
+.fuzzySearch .form-contrl .userlist{
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+  float: left;
+}
+.fuzzySearch .form-contrl .userlist ul {
+  max-height: 200px;
+  width: 100%;
+  z-index: 2;
+  background: #fff;
+  overflow-y: auto;
+}
+.fuzzySearch .form-contrl .userlist ul li {
+  line-height: 36px;
+  color: #555;
+  font-size: 14px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.fuzzySearch .form-contrl .userlist ul li:hover {
+  background: #E2F1DD;
+}
+.fuzzySearch .form-contrl .userlist ul li .success{
+  color: green;
+  float: right;
+}
+/*自定义下拉查找账户样式*/
+
+@media screen and (min-width:992px) and (max-width:1241px){
+  .content section ul li{
+    width: 220px;
+    height: 116px;
+  }
+  .content section ul li div{
+    width: 135px;
+    margin-top: 15px;
+  }
+}
+
+@media screen and (min-width:768px) and (max-width:991px){
+  .centerBox .condition {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 50px;
+  }
+  .content section ul li{
+    width: 320px;
+    height: 100px;
+  }
+  .content section ul li div{
+    width: 235px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .centerBox .condition {
+    display: block;
+  }
+  .centerBox .condition .el-select{
+    width: 100%;
+  }
+  .centerBox .condition .el-autocomplete{
+    width: 100%;
+  }
+  .centerBox .condition .el-button{
+    width: 96%;
+  }
+}

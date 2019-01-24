@@ -1,0 +1,8 @@
+/* 和值类组件的公共添加的修改样式 */
+.choice-number-list > li .top > .balls {
+  float: left;
+  width: 734px;
+}
+.choice-number-list > li .top > .balls span {
+  margin-bottom: 10px;
+}

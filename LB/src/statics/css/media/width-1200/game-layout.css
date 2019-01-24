@@ -1,0 +1,38 @@
+@media screen and (min-width:990px) and (max-width:1241px) {
+
+}
+
+@media screen and (max-width:1270px) {
+  .create-number-bet {
+    display: none;
+  }
+}
+@media screen and (min-width: 1199px) {
+  .qs .qs-right {
+    width: 23%;
+  }
+  .qs .qs-left {
+    width: 881px;
+  }
+  .qs {
+    width: 1172px !important;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .qs .qs-right {
+    width: 100%;
+    margin: 12px auto 0;
+
+  }
+  .qs .qs-left {
+    width: 100%;
+    margin:0 auto;
+  }
+}
+
+@media screen and (min-width:992px) and (max-width:1192px) {
+  .qs {
+    width: 970px !important;
+  }
+}

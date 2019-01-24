@@ -1,0 +1,35 @@
+/* 针对任选一中对应菜单的样式 */
+.renxuan-menu {
+  width: 100%;
+  text-align: center;
+}
+.renxuan-menu {
+  width: 100%;
+  text-align: center;
+}
+.renxuan-menu span {
+  display: inline-block;
+  width: 34px;
+  height: 33px;
+  text-align: center;
+  margin-top: 3px;
+  line-height: 33px;
+  background-color: #ffffff;
+  border: 1px solid #c3c3c3;
+  border-radius: 2px;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #545454;
+}
+.renxuan-menu span a {
+  display: inline-block;
+  width: 100%;
+  color: #545454;
+  height: 100%;
+}
+.renxuan-menu span:hover {
+  background-color: #dbdbdb;
+}
+.renxuan-menu span.now-hov {
+  background-color: #dbdbdb;
+}

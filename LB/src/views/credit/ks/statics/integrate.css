@@ -1,0 +1,82 @@
+/* .bet-plate begin */
+.bet-plate {
+  margin-top: 20px;
+}
+.bet-plate > ul:nth-of-type(1) {}
+.bet-plate > ul:nth-of-type(1) > li {
+  margin: 5px 0;
+}
+.bet-plate > ul:nth-of-type(1) > li > h4 {
+  width: 100%;
+  height: 23px;
+  line-height: 23px;
+  background-color: #ff9100;
+  font-weight: normal;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+.bet-plate > ul:nth-of-type(1) > li > .block-list {
+  padding: 10px 0 3px 0;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list > li > ul > li,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li {
+  float: left;
+  padding: 5px 5px;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list > li > ul > li.selected,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li.selected{
+  background-color: #eee4b2;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list .bet-label,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li > .bet-label {
+  float: left;
+  width: 28%;
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list .bet-label > .ball,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li > .bet-label > .ball {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 14px;
+  background: linear-gradient(to right, #d5d5d5, #e7e7e7, #d5d5d5);
+  border: 1px solid #ababab;
+  line-height: 26px;
+  text-align: center;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list .odd,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li > .odd {
+  float: left;
+  height: 28px;
+  line-height: 26px;
+  font-size: 16px;
+  color: #ee0000;
+  text-align: center;
+  width: 32%;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list .bet-count,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li > .bet-count {
+  float: right;
+  width: 40%;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list .bet-count input,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li > .bet-count input {
+  width: 100%;
+  height: 26px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #b2b2b2;
+  background: #eeeeee;
+  text-align: center;
+  font-weight: bold;
+  color: #ee0000;
+}
+.bet-plate > ul:nth-of-type(1) > li > .inline-list .bet-count input:focus,
+.bet-plate > ul:nth-of-type(1) > li > .block-list > li > .bet-count input:focus {
+  border: 1px solid #ee0000;
+}
+/* .bet-plate end */

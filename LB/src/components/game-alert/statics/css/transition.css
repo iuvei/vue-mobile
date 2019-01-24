@@ -1,0 +1,12 @@
+/* 定义动画的类名 begin */
+.fade-in-linear-enter-active {
+  transition: all .3s linear;
+}
+.fade-in-linear-leave-active {
+  transition: all .3s linear;
+}
+.fade-in-linear-enter, .fade-in-linear-leave-to {
+  /*transform: translateY(-100px);*/
+  opacity: 0;
+}
+/* 定义动画的类名 end*/

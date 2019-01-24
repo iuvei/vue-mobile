@@ -1,0 +1,101 @@
+/* 文字背景需覆盖的样式文件 */
+.choice-number-list > li .top > .balls > i {
+  margin-right: 5px;
+}
+.choice-number-list > li .top > .balls > i > a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.choice-number-list > li .top > .balls span {
+  float: left;
+  width: 179px;
+  padding: 0 10px;
+  height: 63px;
+  line-height: 59px;
+  text-align: center;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+  background: #bfbfbf;
+  font-weight: bold;
+  border-radius: 0;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  font-size: 18px;
+  margin-right: 5px;
+}
+.dice,
+.choice-number-list > li .top > .balls span > .dice {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+}
+.dice-1.selected {
+  background: url("../../../../statics/img/dice-1-acrive.png") no-repeat 0 0;
+}
+.dice-2.selected {
+  background: url("../../../../statics/img/dice-2-acrive.png") no-repeat 0 0;
+}
+.dice-3.selected {
+  background: url("../../../../statics/img/dice-3-acrive.png") no-repeat 0 0;
+}
+.dice-4.selected {
+  background: url("../../../../statics/img/dice-4-acrive.png") no-repeat 0 0;
+}
+.dice-5.selected {
+  background: url("../../../../statics/img/dice-5-acrive.png") no-repeat 0 0;
+}
+.dice-6.selected {
+  background: url("../../../../statics/img/dice-6-acrive.png") no-repeat 0 0;
+}
+.choice-number-list > li .top > .balls span:hover {
+  background: #bfbfbf;
+}
+.dice:hover.dice-1:not(.selected),
+.choice-number-list > li .top > .balls span:hover .dice-1:not(.selected) {
+  background: url("../../../../statics/img/dice-1-hover.png") no-repeat 0 0;
+}
+.dice:hover.dice-2:not(.selected),
+.choice-number-list > li .top > .balls span:hover .dice-2:not(.selected) {
+  background: url("../../../../statics/img/dice-2-hover.png") no-repeat 0 0;
+}
+.dice:hover.dice-3:not(.selected),
+.choice-number-list > li .top > .balls span:hover .dice-3:not(.selected) {
+  background: url("../../../../statics/img/dice-3-hover.png") no-repeat 0 0;
+}
+.dice:hover.dice-4:not(.selected),
+.choice-number-list > li .top > .balls span:hover .dice-4:not(.selected) {
+  background: url("../../../../statics/img/dice-4-hover.png") no-repeat 0 0;
+}
+.dice:hover.dice-5:not(.selected),
+.choice-number-list > li .top > .balls span:hover .dice-5:not(.selected) {
+  background: url("../../../../statics/img/dice-5-hover.png") no-repeat 0 0;
+}
+.dice:hover.dice-6:not(.selected),
+.choice-number-list > li .top > .balls span:hover .dice-6:not(.selected) {
+  background: url("../../../../statics/img/dice-6-hover.png") no-repeat 0 0;
+}
+.dice:nth-last-child(2) {
+  margin: 0 3px;
+}
+.dice-1 {
+  background: url("../../../../statics/img/dice-1-normal.png") no-repeat 0 0;
+}
+.dice-2 {
+  background: url("../../../../statics/img/dice-2-normal.png") no-repeat 0 0;
+}
+.dice-3 {
+  background: url("../../../../statics/img/dice-3-normal.png") no-repeat 0 0;
+}
+.dice-4 {
+  background: url("../../../../statics/img/dice-4-normal.png") no-repeat 0 0;
+}
+.dice-5 {
+  background: url("../../../../statics/img/dice-5-normal.png") no-repeat 0 0;
+}
+.dice-6 {
+  background: url("../../../../statics/img/dice-6-normal.png") no-repeat 0 0;
+}
+.balls {
+  width: 552px;
+}

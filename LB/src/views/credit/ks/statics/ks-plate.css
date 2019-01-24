@@ -1,0 +1,204 @@
+/* 将所有的子组件中的样式都抽取出来将其独立为一个单独的css文件 */
+/* 直选复式类 begin */
+.choice-number-list {
+  margin-top: 19px;
+  position: relative;
+  padding-bottom: 20px;
+}
+.choice-number-list::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 1020px;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background: url("../../../../statics/img/line_1px_bottom.png") no-repeat 0 0;
+}
+.choice-number-list > li {
+  margin-bottom: 17px;
+}
+.choice-number-list > li:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.choice-number-list > li .top {
+  line-height: 39px;
+}
+.choice-number-list > li .top h4 {
+  float: left;
+  font-weight: normal;
+  font-size: 16px;
+  color: #000000;
+  margin-right: 26px;
+  width: 70px;
+}
+.choice-number-list > li .top > .balls {
+  float: left;
+}
+.choice-number-list > li .top > .balls span {
+  float: left;
+  width: 39px;
+  height: 39px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+  background: url("../../../../statics/img/ball_bg_small.png") no-repeat -1px 0;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0);
+  line-height: 39px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.choice-number-list > li .top > .balls span:hover {
+  background: url("../../../../statics/img/ball_bg_small_hover.png") no-repeat -1px 0;
+}
+.choice-number-list > li .top > .balls span.selected {
+  background: #f8f8f8;
+  border: 1px solid #d6cfbd;
+}
+.choice-number-list > li .top > .balls span > a {
+  display: inline-block;
+  width: 100%;
+  color: #463b19;
+  height: 100%;
+}
+.choice-number-list > li .top > .types {
+  float: right;
+}
+.choice-number-list > li .top > .types span {
+  float: left;
+  width: 34px;
+  height: 33px;
+  text-align: center;
+  margin-top: 3px;
+  line-height: 33px;
+  background-color: #ffffff;
+  border: 1px solid #c3c3c3;
+  border-radius: 2px;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #545454;
+}
+.choice-number-list > li .top > .types span.now-hov {
+  background-color: #dbdbdb;
+}
+.choice-number-list > li .top > .types span:hover {
+  background-color: #dbdbdb;
+}
+.choice-number-list > li .top > .types span > a {
+  display: inline-block;
+  width: 100%;
+  color: #545454;
+  height: 100%;
+}
+.choice-number-list > li .center {
+  margin-top: 8px;
+}
+.choice-number-list > li .center h4 {
+  float: left;
+  font-size: 12px;
+  color: #808181;
+  font-weight: normal;
+  margin-right: 40px;
+}
+.choice-number-list > li .center .numbers {
+  float: left;
+}
+.choice-number-list > li .center .numbers span {
+  float: left;
+  width: 39px;
+  text-align: center;
+  margin-right: 5px;
+  font-size: 12px;
+  color: #f17e2e;
+  font-weight: bold;
+}
+.choice-number-list > li .bottom {
+  margin-top: 4px;
+}
+.choice-number-list > li .bottom h4 {
+  float: left;
+  color: #808181;
+  font-weight: normal;
+  margin-right: 30px;
+}
+.choice-number-list > li .bottom .numbers {
+  float: left;
+}
+.choice-number-list > li .bottom .numbers span{
+  float: left;
+  width: 39px;
+  text-align: center;
+  margin-right: 5px;
+  font-size: 12px;
+  color: #545454;
+  font-weight: bold;
+}
+/* 直选复式类 end */
+/* 直选单式 begin */
+.input-wrapper {
+  padding-top: 32px;
+}
+.input-wrapper > textarea {
+  width: 100%;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  color: #777;
+  line-height: 20px;
+  font-size: 15px;
+  resize: vertical;
+}
+.input-wrapper > textarea:focus {
+  border: 1px solid rgb(153, 153, 153);
+}
+.input-wrapper > div {
+  margin-top: 10px;
+}
+.input-wrapper > div > p {
+  color: #777;
+  font-size: 15px;
+  float: left;
+}
+.input-wrapper > div > a {
+  float: right;
+  font-size: 15px;
+  transition: color .15s linear;
+}
+.input-wrapper > div > a:hover {
+  color: #777;
+}
+
+/* 直选单式 end */
+/* 趣味玩法中 文字背景与圆形背景重复 begin */
+
+.choice-number-list > li .top > .balls span.no-ball-show {
+  float: left;
+  width: 98px;
+  height: 38px;
+  -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .5);
+  background: url("../../../../statics/img/play_choice_list_text_bg.png") no-repeat -1px 0;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  line-height: 39px;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.choice-number-list > li .top > .balls span.no-ball-show:hover {
+  background: url("../../../../statics/img/play_choice_list_text_bg_hover.png") no-repeat -1px 0;
+}
+.choice-number-list > li .top > .balls span:hover {
+  background: url("../../../../statics/img/ball_bg_small_hover.png") no-repeat -1px 0;
+}
+.choice-number-list > li .top > .balls span.selected {
+  background: #f8f8f8;
+  border: 1px solid #d6cfbd;
+}
+.choice-number-list > li .top > .balls span.selected:hover {
+  background: #f8f8f8;
+  border: 1px solid #d6cfbd;
+}
+/* 趣味玩法中 文字背景与圆形背景重复 end */

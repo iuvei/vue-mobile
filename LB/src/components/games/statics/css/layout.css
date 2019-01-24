@@ -1,0 +1,105 @@
+.qs {
+  width: 1172px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 23px;
+}
+/*qs-left begin*/
+.qs-left {
+  width: 881px;
+  float: left;
+}
+/*qs-left end*/
+/*choice-number-box-tabs end*/
+.choice-number-box-tabs {
+  background-color: #cbcbcb;
+  min-height: 42px;
+}
+.choice-number-box-tabs a {
+  float: left;
+  height: 42px;
+  padding: 0 14.5px;
+  line-height: 42px;
+  background-color: #cbcbcb;
+  text-align: center;
+  font-size: 14px;
+  border-right: 1px solid #b2b2b2;
+  position: relative;
+}
+.choice-number-box-tabs a:nth-last-of-type(1) {
+  border-right: none;
+}
+.choice-number-box-tabs a.router-link-active {
+  background-color: #eeeeee;
+}
+.choice-number-box-tabs a:hover {
+  background-color: #eeeeee;
+}
+.choice-number-box-tabs a.router-link-active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #b7ab81;
+  top: 0;
+  left: 0;
+}
+.choice-number-box-tabs a:hover::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #b7ab81;
+  top: 0;
+  left: 0;
+}
+/*choice-number-box-tabs end*/
+/*---------------tabs*/
+.tabs {
+  position: absolute;
+  left: -39px;
+  top: 39px;
+}
+.tabs > a {
+  display: block;
+  margin-bottom: 9px;
+  width: 27px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 18px;
+  padding-top: 10px;
+  color: #545454;
+  border-radius: 2px;
+  background-color: #eeeeee;
+  height: 60px;
+}
+.tabs > a.hov {
+  background-color: #f17e2e;
+  color: #FFFFFF;
+}
+/*qs-right begin*/
+.qs-right {
+  position: relative;
+  margin-left: 12px;
+  float: left;
+  width: 278px;
+}
+/* 做号投注按钮 begin */
+.qs-right > .create-number-bet {
+  position: absolute;
+  width: 37px;
+  height: 120px;
+  background-color: #f17e2e;
+  border-radius: 0 3px 3px 0;
+  right: -37px;
+  top: 101px;
+  padding-top: 13px;
+  color: #fff;
+  line-height: 18px;
+  font-size: 16px;
+  padding-left: 11px;
+}
+/* 做号投注按钮 end */
+/*qs-right end*/

@@ -1,0 +1,143 @@
+@media (max-width: 989px) {
+  .item{
+    width: 100%;
+  }
+  .financial-box{
+    flex-wrap: wrap;
+  }
+  .withdraw{
+    flex-wrap: wrap;
+  }
+  .content{
+    width: 100% !important;
+  }
+  .help{
+    width: 100% !important;
+  }
+}
+.financial-box {
+  width: 100%;
+  display: flex;
+}
+.financial-box .content {
+  width: 66%;
+  min-height: 150px;
+  border-left: 5px solid #efefef;
+}
+.financial-box .content .select {
+  width: 100%;
+  display: flex;
+  min-height: 60px;
+}
+.financial-box .content .select .el-form {
+  display: flex;
+}
+.financial-box .content .select .el-form .el-form-item {
+  margin: 0;
+  align-self: center;
+}
+.financial-box .content .select .el-form-item .el-form-item__label {
+  width: 120px !important;
+}
+.financial-box .content .select .el-form-item .el-form-item__content {
+  margin-left: 120px !important;
+}
+.financial-box
+.content
+.select
+.el-form-item
+.el-form-item__content
+.is-active
+.el-radio-button__inner {
+  background-color: #eb7e00;
+  border-color: #eb7e00;
+  box-shadow: -1px 0 0 0 #eb7e00;
+}
+.financial-box .content .pay-type {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.financial-box .content .pay-type > div {
+  height: 33px;
+  width: 138px;
+  border: 1px solid #eb7e00;
+  background: #ffffff;
+  color: #777777;
+  text-align: center;
+  line-height: 33px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.financial-box .content .pay-type > div:hover {
+  background: #eb7e00;
+  color: #ffffff;
+}
+.financial-box .content .pay-type > .active {
+  background: #eb7e00;
+  color: #ffffff;
+}
+.financial-box .content .bank-list {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+.financial-box .content .text {
+  font-size: 15px;
+  color: #333333;
+  align-self: center;
+  margin-left: 50px;
+}
+.financial-box .content .text span {
+  color: #eb7e00;
+}
+.financial-box .help {
+  width: 33%;
+  padding: 0 20px;
+}
+.financial-box .help .title {
+  font-size: 19px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #eeeeee;
+}
+.financial-box .help .text p {
+  font-size: 13px;
+  color: #777777;
+  line-height: 24px;
+}
+.financial-box .help .text p a {
+  font-size: 13px;
+  color: #f17e2e;
+  cursor: pointer;
+}
+.financial-box .link {
+  padding-top: 40px;
+}
+.financial-box .link ul {
+  background: #efefef;
+  list-style: square inside;
+  padding-left: 20px;
+}
+.financial-box .link ul li {
+  font-size: 14px;
+  color: #777777;
+  cursor: pointer;
+  line-height: 32px;
+}
+.financial-box .link div {
+  background: #dcdcdc;
+  text-align: right;
+  padding-right: 20px;
+  height: 32px;
+  line-height: 32px;
+}
+.financial-box .link div a {
+  color: #3c3c3c;
+  cursor: pointer;
+  font-size: 14px;
+}

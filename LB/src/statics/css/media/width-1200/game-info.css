@@ -1,0 +1,33 @@
+@media screen and (min-width:990px) and (max-width:1241px) {
+  .game-main,.game-info {
+    width: 100%;
+    padding:0;
+  }
+  .qs-right > .create-number-bet {
+    display: none;
+  }
+  .game-info > ul > li:nth-of-type(4) {
+    padding-right: 25px;
+  }
+}
+@media screen and (min-width:990px) and (max-width:1280px) {
+  .game-info > ul > li:nth-of-type(1),.game-info > ul > li:nth-of-type(4) {
+    width: 16% !important;
+    padding-right: 0 !important;
+  }
+  .game-info > ul > li:nth-of-type(4) {
+    padding-left: 15px !important;
+  }
+  .game-info > ul > li:nth-of-type(2),.game-info > ul > li:nth-of-type(3) {
+    width: 34% !important;
+  }
+  .pk10-game_info.game-info  > ul > li:nth-of-type(2){
+    width: 80% !important;
+  }
+}
+@media screen and (max-width:1282px) {
+  .pk10-game_info.game-info  > ul > li:nth-of-type(3) {
+    display: none;
+  }
+}
+

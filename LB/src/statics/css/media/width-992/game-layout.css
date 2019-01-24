@@ -1,0 +1,14 @@
+@media screen and (min-width:762px) and (max-width:989px){
+
+}
+@media screen and (min-width:768px) and (max-width:992px) {
+  .qs {
+    width: 750px !important;
+    clear: both;
+  }
+  .choice-number-box-tabs a {
+    padding: 0 8px !important;
+    font-size: 12px !important;
+  }
+
+}

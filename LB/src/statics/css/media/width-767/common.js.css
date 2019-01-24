@@ -1,0 +1,207 @@
+
+@media screen and  (max-width:761px) {
+  .width {
+    max-width: 714px;
+    padding: 0 15px;
+  }
+  .choice-number-list > li .top > .balls {
+    width: auto !important;
+  }
+  /*.choice-number-box-container > .btns > a {
+    display: block !important;
+    margin: 0 auto !important;
+  }*/
+}
+@media screen and (max-width:660px) {
+  .bet-plate > ul:nth-of-type(1) > li > .inline-list .bet-label,
+  .bet-plate > ul:nth-of-type(1) > li > .inline-list .odd,
+  .bet-plate > ul:nth-of-type(1) > li > .block-list > li > .bet-label,
+  .bet-plate > ul:nth-of-type(1) > li > .block-list > li > .odd,
+  .bet-plate > ul:nth-of-type(1) > li > ul > li > .bet-label,
+  .bet-plate > ul:nth-of-type(1) > li > ul > li > .odd{
+    width: 50% !important;
+    font-size: 13px !important;
+  }
+  .bet-plate > ul:nth-of-type(1) > li > .inline-list .bet-count,
+  .bet-plate > ul:nth-of-type(1) > li > .block-list > li > .bet-count,
+  .bet-plate > ul:nth-of-type(1) > li > ul > li > .bet-count{
+    width: 100% !important;
+    margin-top:5px;
+  }
+  .setting .btns {
+    width: 100%;
+  }
+  .setting .amount {
+    float: left;
+    position: static !important;
+    height: auto !important;
+    line-height:0 !important;
+    transform:translateX(0) !important;
+  }
+  .setting .amount>div {
+    float: none !important;
+    display: inline-block;
+  }
+}
+@media screen and (max-width:635px) {
+  .choice-number-list > li .top_1 {
+    height: auto !important;
+    line-height: normal;
+  }
+  .choice-number-list > li .top_1 h4,.choice-number-list > li .top_1 .balls,.choice-number-list > li .top_1 .types {
+    float: none !important;
+  }
+  .choice-number-list > li .top h4 {
+    width: auto !important;
+  }
+  .choice-number-list > li .top_1 .balls {
+     float: none;
+   }
+  .choice-number-list > li .top_1 .types {
+    float: none;
+  }
+
+  .choice-number-list > li .center h4, .choice-number-list > li .bottom h4{
+    font-size: 14px !important;
+    margin-bottom: 5px;
+  }
+
+  .choice-number-list > li .center,.choice-number-list > li .bottom {
+    margin-top: 10px !important;
+  }
+  .confirmation-amount {
+    height: auto !important;
+  }
+}
+
+@media screen and (max-width: 550px) and (min-width: 475px) {
+  .choice-number-list > li .top > .balls span {
+    margin: 4px 18px !important;
+  }
+}
+@media screen and (max-width: 475px) {
+  .choice-number-list > li .top > .balls span {
+    margin-bottom: 4px !important;
+  }
+}
+@media screen and (max-width: 415px) {
+  .choice-number-box-container > .btns > a {
+    display: block !important;
+    margin: 0 auto !important;
+  }
+  .confirmation-amount{
+    height: auto;
+  }
+  .betting-btns-wrapper .betting-btns {
+    width: 100% !important;
+  }
+  .betting-btns-wrapper .betting-btns > a {
+    width: 45% !important;
+  }
+  .plate-item > ul > li > .bet-count {
+    width: 30%;
+  }
+  .choice-number-list > li .top > .balls > i {
+    margin-bottom: 5px;
+  }
+}
+/*------------footer自适应开始--------------------*/
+@media screen and (max-width: 640px) {
+  .icon_links,.player-count a img{
+    display: none;
+  }
+  .now-player-info{
+    width: 100%!important;
+    text-align: center!important;
+  }
+  .now-player-info li span{
+    font-size: 16px!important;
+  }
+  .now-player-info li{
+    width: 50% !important;
+    margin: 0!important;
+  }
+  .service-terms > p:nth-of-type(2){
+    padding:5px 0!important;
+  }
+  .functional-link{
+    width: 100%;
+  }
+  .link-list > .functional-link > li{
+    width: 20%!important;
+  }
+  .group-links > ul{
+    text-align: center;
+  }
+
+  .group-links > ul > li{
+    float: none!important;
+    display: inline-block!important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .player-count a img,
+  .icon_links{
+    display: none;
+  }
+  .now-player-info{
+    width: 100%;
+  }
+  .now-player-info li{
+    width: 50%;
+    margin: 0px!important;
+    text-align: center!important;
+  }
+  .service-terms > p:nth-of-type(2){
+    padding:5px 0!important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .service-terms > p:nth-of-type(1){
+    padding:5px 0!important;
+  }
+  .service-terms > p:nth-of-type(2){
+    padding:0!important;
+  }
+  .service-terms > a{
+    margin: 0!important;
+  }
+}
+@media screen and (max-width: 415px) {
+  .now-player-info{
+    width: 100%;
+  }
+  .player-count > div,
+  .player-count{
+    height: 35px!important;
+  }
+  .now-player-info li{
+    width: 50%;
+    float: left;
+    line-height: 35px!important;
+    height: 35px!important;
+    margin: 0px!important;
+    font-size: 12px!important;
+  }
+  .now-player-info li img{
+    display: none;
+  }
+  .link-list,
+  .link-list > .functional-link{
+    line-height: 35px!important;
+    height: 35px!important;
+  }
+  .link-list > .functional-link > li{
+    padding:5px!important;
+  }
+  .group-links > ul{
+    text-align: center!important;
+    float: unset!important;
+  }
+  .group-links > ul > li{
+    float: unset!important;
+    display: inline-block!important;
+    margin-bottom: 5px!important;
+  }
+}
+/*------------footer自适应结束-------------------*/

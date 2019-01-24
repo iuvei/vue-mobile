@@ -1,0 +1,36 @@
+
+@media screen and (min-width:990px) and (max-width:1241px){
+  .width {
+    width: 970px;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .choice-number-list::after,.choice-number-box-container .play-description::after {
+    width: 100% !important;
+  }
+  .choice-number-box-container .play-description .game-rule-text {
+    white-space: normal !important;
+  }
+  .game-info > ul > li .recent_period_detail {
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width:1050px){
+  .tabs {
+    display: none;
+  }
+  .choice-number-box-container .play-description {
+    height: auto !important;
+    line-height: normal !important;
+  }
+  .play-description{
+    overflow: hidden;
+  }
+  .choice-number-box-container > .btns > a {
+    margin: 5px;
+  }
+}
+

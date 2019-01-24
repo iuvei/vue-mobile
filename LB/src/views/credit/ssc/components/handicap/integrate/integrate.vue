@@ -1,0 +1,301 @@
+<template>
+    <div class="bet-plate">
+      <ul>
+        <li v-for="(list, index) in numberList"
+            :class="{ 'clear-fix': list.inline }"
+            :key="index">
+          <template v-if="!list.inline">
+            <h4>{{list.type}}</h4>
+            <ul class="block-list clear-fix">
+              <li class="clear-fix"
+                  @click="clickChoiceItem($event, item)"
+                  v-for="(item, indexInner) in list.numberList"
+                  :class="{ 'selected': item.betCount !== '' }"
+                  :style="{ 'width': 100 / list.lineShowCount + '%' }"
+                  :key="indexInner">
+                <div class="bet-label">
+                  <span :class="{ 'ball': list.isBall }">{{item.label}}</span>
+                </div>
+                <span class="odd">{{item.odd | getRound4}}</span>
+                <el-dropdown class="bet-count"
+                             @command="clickQuickSelect.apply(this, Array.prototype.concat.call(arguments, item))"
+                             trigger="click">
+                  <input type="text"
+                         @input="checkInputCount(item)"
+                         @blur="checkIsMoreThanMaxCount(item)"
+                         v-model="item.betCount">
+                  <el-dropdown-menu v-if="dropDownShow"
+                                    slot="dropdown">
+                    <el-dropdown-item v-for="(itemInner, index) in quickSelectAmountData"
+                                      :command="itemInner"
+                                      :key="index">{{itemInner}}元</el-dropdown-item>
+                  </el-dropdown-menu>
+                </el-dropdown>
+              </li>
+            </ul>
+          </template>
+          <template v-else>
+            <ul class="inline-list clear-fix">
+              <li v-for="(item, indexInner) in list.numberList"
+                  :style="{ 'width': 100 / list.lineShowCount + '%' }"
+                  :key="indexInner">
+                <h4>{{item.type}}</h4>
+                <ul class="clear-fix">
+                  <li class="clear-fix"
+                      @click="clickChoiceItem($event, itemInner)"
+                      v-for="(itemInner, indexInnerTwo) in item.numberList"
+                      :class="{ 'selected': itemInner.betCount !== '' }"
+                      :style="{ 'width': 100 / item.lineShowCount + '%' }"
+                      :key="indexInnerTwo">
+                    <div class="bet-label">
+                      <span :class="{ 'ball': item.isBall }">{{itemInner.label}}</span>
+                    </div>
+                    <span class="odd">{{itemInner.odd | getRound4}}</span>
+                    <el-dropdown class="bet-count"
+                                 @command="clickQuickSelect.apply(this, Array.prototype.concat.call(arguments, itemInner))"
+                                 trigger="click">
+                      <input type="text"
+                             @input="checkInputCount(itemInner)"
+                             @blur="checkIsMoreThanMaxCount(itemInner)"
+                             v-model="itemInner.betCount">
+                      <el-dropdown-menu v-if="dropDownShow"
+                                        slot="dropdown">
+                        <el-dropdown-item v-for="(itemInnerTwo, indexInnerThree) in quickSelectAmountData"
+                                          :command="itemInnerTwo"
+                                          :key="indexInnerThree">{{itemInnerTwo}}元</el-dropdown-item>
+                      </el-dropdown-menu>
+                    </el-dropdown>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </template>
+        </li>
+      </ul>
+    </div>
+</template>
+
+<script>
+import handicapIntegrateMixins from '../common/handicap-integrate-mixins'
+import { handicapAjaxValueConfig } from '../../../../../../config/game-default-config'
+
+export default {
+  mixins: [ handicapIntegrateMixins ],
+  data () {
+    return {
+      numberList: [
+        {
+          type: '总和-龙虎和',
+          isBall: false,
+          isOneBall: false,
+          labelMap: 'zonghe-longhuhe',
+          lineShowCount: 4,
+          numberList: [
+            { label: '总和大', value: 1, upperLabel: 'zonghe-longhuhe', labelMap: 'zhdxds', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '总和小', value: 0, upperLabel: 'zonghe-longhuhe', labelMap: 'zhdxds', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '总和单', value: 1, upperLabel: 'zonghe-longhuhe', labelMap: 'zhdxds', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '总和双', value: 0, upperLabel: 'zonghe-longhuhe', labelMap: 'zhdxds', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '龙', value: 1, upperLabel: 'zonghe-longhuhe', labelMap: 'longhu', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '虎', value: 0, upperLabel: 'zonghe-longhuhe', labelMap: 'longhu', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '和', value: 1, upperLabel: 'zonghe-longhuhe', labelMap: 'he', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+          ]
+        },
+        {
+          type: 'ball',
+          isBall: true,
+          isOneBall: true,
+          inline: true,
+          labelMap: 'first',
+          lineShowCount: 5,
+          numberList: [
+            {
+              type: '第一球',
+              isBall: true,
+              isOneBall: true,
+              inline: true,
+              labelMap: 'first',
+              lineShowCount: 1,
+              numberList: [
+                { label: '0', value: 0, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '1', value: 1, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '2', value: 2, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '3', value: 3, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '4', value: 4, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '5', value: 5, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '6', value: 6, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '7', value: 7, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '8', value: 8, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '9', value: 9, upperLabel: 'first', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '大', value: 1, upperLabel: 'first', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '小', value: 0, upperLabel: 'first', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '单', value: 1, upperLabel: 'first', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '双', value: 0, upperLabel: 'first', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+              ]
+            },
+            {
+              type: '第二球',
+              isBall: true,
+              isOneBall: true,
+              inline: true,
+              labelMap: 'second',
+              lineShowCount: 1,
+              numberList: [
+                { label: '0', value: 0, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '1', value: 1, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '2', value: 2, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '3', value: 3, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '4', value: 4, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '5', value: 5, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '6', value: 6, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '7', value: 7, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '8', value: 8, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '9', value: 9, upperLabel: 'second', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '大', value: 1, upperLabel: 'second', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '小', value: 0, upperLabel: 'second', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '单', value: 1, upperLabel: 'second', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '双', value: 0, upperLabel: 'second', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+              ]
+            },
+            {
+              type: '第三球',
+              isBall: true,
+              isOneBall: true,
+              inline: true,
+              labelMap: 'third',
+              lineShowCount: 1,
+              numberList: [
+                { label: '0', value: 0, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '1', value: 1, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '2', value: 2, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '3', value: 3, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '4', value: 4, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '5', value: 5, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '6', value: 6, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '7', value: 7, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '8', value: 8, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '9', value: 9, upperLabel: 'third', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '大', value: 1, upperLabel: 'third', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '小', value: 0, upperLabel: 'third', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '单', value: 1, upperLabel: 'third', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '双', value: 0, upperLabel: 'third', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+              ]
+            },
+            {
+              type: '第四球',
+              isBall: true,
+              isOneBall: true,
+              inline: true,
+              labelMap: 'fourth',
+              lineShowCount: 1,
+              numberList: [
+                { label: '0', value: 0, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '1', value: 1, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '2', value: 2, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '3', value: 3, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '4', value: 4, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '5', value: 5, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '6', value: 6, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '7', value: 7, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '8', value: 8, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '9', value: 9, upperLabel: 'fourth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '大', value: 1, upperLabel: 'fourth', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '小', value: 0, upperLabel: 'fourth', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '单', value: 1, upperLabel: 'fourth', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '双', value: 0, upperLabel: 'fourth', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+              ]
+            },
+            {
+              type: '第五球',
+              isBall: true,
+              isOneBall: true,
+              inline: true,
+              labelMap: 'fifth',
+              lineShowCount: 1,
+              numberList: [
+                { label: '0', value: 0, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '1', value: 1, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '2', value: 2, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '3', value: 3, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '4', value: 4, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '5', value: 5, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '6', value: 6, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '7', value: 7, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '8', value: 8, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '9', value: 9, upperLabel: 'fifth', labelMap: 'dingweidan', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '大', value: 1, upperLabel: 'fifth', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '小', value: 0, upperLabel: 'fifth', labelMap: 'daxiaozuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '单', value: 1, upperLabel: 'fifth', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+                { label: '双', value: 0, upperLabel: 'fifth', labelMap: 'danshuangzuhe', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+              ]
+            }
+          ]
+        },
+
+        {
+          type: '前三',
+          isBall: false,
+          isOneBall: false,
+          labelMap: 'topthree',
+          lineShowCount: 5,
+          numberList: [
+            { label: '豹子', value: 0, upperLabel: 'topthree', labelMap: 'baozi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '顺子', value: 1, upperLabel: 'topthree', labelMap: 'shunzi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '对子', value: 2, upperLabel: 'topthree', labelMap: 'duizi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '半顺', value: 3, upperLabel: 'topthree', labelMap: 'banshun', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '杂六', value: 4, upperLabel: 'topthree', labelMap: 'zaliu', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+          ]
+        },
+        {
+          type: '中三',
+          isBall: false,
+          isOneBall: false,
+          labelMap: 'secondarythree',
+          lineShowCount: 5,
+          numberList: [
+            { label: '豹子', value: 0, upperLabel: 'secondarythree', labelMap: 'baozi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '顺子', value: 1, upperLabel: 'secondarythree', labelMap: 'shunzi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '对子', value: 2, upperLabel: 'secondarythree', labelMap: 'duizi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '半顺', value: 3, upperLabel: 'secondarythree', labelMap: 'banshun', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '杂六', value: 4, upperLabel: 'secondarythree', labelMap: 'zaliu', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+          ]
+        },
+        {
+          type: '后三',
+          isBall: false,
+          isOneBall: false,
+          labelMap: 'afterthree',
+          lineShowCount: 5,
+          numberList: [
+            { label: '豹子', value: 0, upperLabel: 'afterthree', labelMap: 'baozi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '顺子', value: 1, upperLabel: 'afterthree', labelMap: 'shunzi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            // { label: '对子', value: 2, upperLabel: 'afterthree', labelMap: 'duizi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '对子', value: 2, upperLabel: 'afterthree', labelMap: 'zuizi', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '半顺', value: 3, upperLabel: 'afterthree', labelMap: 'banshun', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 },
+            { label: '杂六', value: 4, upperLabel: 'afterthree', labelMap: 'zaliu', odd: 0, betCount: '', maxCount: 0, wayId: '', price: '', prize: '', coefficient: handicapAjaxValueConfig.coefficientEven, maxOdd: 0 }
+          ]
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped>
+ @import "../../../../statics/css/integrate.css";
+  .inline-list {}
+  .inline-list > li {
+    float: left;
+    padding: 0!important;
+  }
+  .inline-list > li > h4 {
+    width: 100%;
+    height: 23px;
+    line-height: 23px;
+    background-color: #ff9100;
+    font-weight: normal;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+</style>

@@ -1,0 +1,159 @@
+@media screen and  (max-width:761px){
+  .game-info > ul > li:nth-of-type(1),.game-info > ul > li:nth-of-type(4) {
+    width: 30% !important;
+    padding-right: 0 !important;
+  }
+  .game-info > ul > li:nth-of-type(2),.game-info > ul > li:nth-of-type(3) {
+    width: 70% !important;
+  }
+  .game-info > ul > li::after {
+    display: none !important;
+  }
+  .game-info > ul > li:nth-of-type(3) > span,.game-info > ul > li:nth-of-type(3) >.balls > span,.game-info > ul > li:nth-of-type(3) > .wrapper > span {
+    width: 30px !important;
+    height: 30px !important;
+    background-size: 100% 100% !important;
+    font-size: 18px !important;
+    line-height: 30px !important;
+  }
+  .game-info > ul > li:nth-of-type(3) .balls > span::after {
+    font-size: 26px !important;
+    left: 41px !important;
+  }
+  .pk10-game_info .second-list-two {
+    margin-top: 10px !important;
+  }
+
+  .pk10-game_info.game-info .links{
+    margin-left: 0!important;
+    float:right;
+  }
+  .pk10-game_info .second-list-two > .balls {
+    width: auto !important;
+    text-align: left;
+  }
+  .pk10-game_info > ul > li:nth-of-type(2) {
+    padding-top: 15px !important;
+  }
+  .pk10-game_info > ul > li:nth-of-type(1) {
+    width: 20% !important;
+  }
+  .pk10-game_info > ul > li:nth-of-type(2) {
+    width: 80% !important;
+  }
+  .pk10-game_info > ul > li:nth-of-type(1) img {
+    width: 100px;
+    height: 100px;
+  }
+
+}
+
+@media screen and (min-width:552px) and  (max-width:761px) {
+  .pk10-game_info > ul > li:nth-of-type(2) > .second-list-one > div:nth-of-type(1) {
+    padding-top: 0!important;
+  }
+  .pk10-game_info.game-info > ul > li:nth-of-type(2) > .second-list-one .time {
+    width: 44%;
+    text-align: left;
+    font-size: 20px !important;
+  }
+  .pk10-game_info > ul > li:nth-of-type(2) > .second-list-one .time span {
+    width:40px !important;
+    line-height: 32px !important;
+    height: 32px !important;
+    background-size:100% !important;
+  }
+}
+@media screen and (min-width:486px) and (max-width:552px) {
+  .pk10-game_info > ul > li:nth-of-type(2) > .second-list-one > div:nth-of-type(1) {
+    padding-top: 4px !important;
+  }
+  .pk10-game_info > ul > li:nth-of-type(2) > .second-list-one .time span {
+    width:40px !important;
+    line-height: 32px !important;
+    height: 32px !important;
+    background-size:100% !important;
+  }
+  .pk10-game_info.game-info > ul > li:nth-of-type(2) > .second-list-one .time {
+    /*width: 43%;*/
+    font-size: 20px !important;
+  }
+  .pk10-game_info.game-info .links {
+    text-align: left;
+  }
+  .game-info > ul > li {
+    /*display: inline-block !important;*/
+    /*float:none !important;*/
+  }
+}
+@media screen and (max-width:552px) {
+  .game-info > ul > li:nth-of-type(3) > div {
+    width: auto !important;
+  }
+}
+@media screen and (max-width: 486px) {
+  .keno-game_info {
+    height: auto !important;
+    min-height: 129px !important;
+  }
+
+  .pk10-game_info > ul > li:nth-of-type(2) > .second-list-one > div:nth-of-type(1) {
+    padding-top: 0 !important;
+  }
+  .game-info > ul > li:nth-of-type(1) {
+    display: none;
+  }
+  .game-info > ul > li:nth-of-type(2) {
+    width: 34% !important;
+  }
+  .game-info >ul> li:nth-of-type(2)>.time>span,.second-list-one .time span{
+    background: none !important;
+    font-size: 16px;
+    width: 20px !important;
+    height: 20px !important;
+    line-height: 20px !important;
+  }
+  .game-info > ul > li:nth-of-type(3) {
+    width: 50% !important;
+  }
+  .game-info > ul > li:nth-of-type(4) {
+    width: 16% !important;
+    padding-left: 0 !important;
+  }
+  .game-info > ul > li:nth-of-type(4) a {
+    width: 50px;
+    font-size: 12px;
+    color: #fff;
+    display: block;
+    margin-top: 15px;
+  }
+  .game-info > ul > li:nth-of-type(4) a img {
+    display: none;
+  }
+  .game-info > ul > li:nth-of-type(2) > .time i,.pk10-game_info > ul > li:nth-of-type(2) > .second-list-one .time i {
+    font-size: 16px !important;
+  }
+  .pk10-game_info > ul > li:nth-of-type(2) > .second-list-one .time {
+    font-size: 0!important;
+  }
+
+  .game-info > ul > li:nth-of-type(3) .balls > span::after {
+    display: none;
+  }
+  /*.game-info > ul > li:nth-of-type(3) .balls > span {*/
+    /*margin-right: 0 !important;*/
+    /*width: 30px !important;*/
+    /*height: 30px !important;*/
+    /*line-height: 30px !important;*/
+    /*font-size: 18px !important;*/
+  /*}*/
+  .pk10-game_info > ul > li:nth-of-type(2) {
+    width:100% !important;
+  }
+  .pk10-game_info {
+    padding:0 !important;
+  }
+  .pk10-game_info .second-list-two > .balls span {
+    margin-bottom: 5px;
+  }
+}
